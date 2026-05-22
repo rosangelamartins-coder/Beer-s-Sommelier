@@ -1,0 +1,6 @@
+{
+  "name": "Sommelier de Cervejas",
+  "description": "Encontre os estilos de cervejas artesanais ideais para o seu paladar e as harmonizações de pratos perfeitas com auxílio de Inteligência Artificial.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
