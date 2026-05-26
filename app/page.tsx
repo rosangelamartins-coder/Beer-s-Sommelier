@@ -495,13 +495,17 @@ const getBodyLabel = (val: string, l: 'pt' | 'en') => {
 
 export default function Home() {
   // Language selection state persistent using localstorage safely
-  const [lang, setLang] = useState<'pt' | 'en'>(() => {
+  const [lang, setLang] = useState<'pt' | 'en'>('pt');
+
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('sommelier_lang');
-      return (saved === 'en' || saved === 'pt') ? saved : 'pt';
+      if (saved === 'en' || saved === 'pt') {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setLang(saved);
+      }
     }
-    return 'pt';
-  });
+  }, []);
 
   const toggleLanguage = () => {
     const nextLang = lang === 'pt' ? 'en' : 'pt';
